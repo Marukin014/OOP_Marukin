@@ -13,7 +13,7 @@ while True:
     num = int(input('ใส่ค่า : '))
     if num > 0:
         sum1 = sumall(num,sum1,sum2)
-    elif num < 0 :
+    elif num < 0:
         sum2 = sumall(num,sum1,sum2)
     else:
         break
