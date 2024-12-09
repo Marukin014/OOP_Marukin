@@ -1,52 +1,36 @@
 class Student:
-    def __init__(self,student_name,student_id,
-                 student_age,student_grades):
-        self.name = student_name
-        self.id = student_id
-        self.age = student_age
-        self.grades = student_grades
+    def __init__(self,name,id,age):
+        self.name = name
+        self.id = id
+        self.age = age
+        self.grade = {}
+    def score(self,score):
+        choice = input("รายชื่อวิชา : Mathematics Thai Science Social \n กรุณาเลือกวิชาที่ต้องการจะกรอกคะแนน : ")
+        score = int(input('ใส่คะแนน : '))
+        grades= self.grades(score)
+        if choice == "Mathematics":
+            self.grade["Mathematics"] = grades
+        elif choice == "Thai":
+            self.grade["Thai"] = grades
+        elif choice == "Science":
+            self.grade["Science"] = grades
+        elif choice == "Social":
+            self.grade["Social"] = grades   
+    def grades(self,score):
+        if score >= 80:
+            return 4 
+        elif score >= 70:
+            return 3
+        elif score >= 60:
+            return 2 
+        elif score >= 50:
+            return 1 
+        else:
+            return 0
 
-    def update_grades(self, subject, new_grade):
-            self.grades[subject] = new_grade
-            print(f"อัปเดตเกรด {subject} ของ {self.name} เป็น {new_grade}")
-    
-    def add_grades(self, new_subject, new_grade):
-            self.grades[new_subject] = new_grade
-            print(f"เพิ่มวิชา {new_subject} เกรดที่ได้ {new_grade} สำหรับ {self.name}")
+stu1 = Student("Mix",673001,19)
+stu2 = Student("bob",673002,18)
 
-    def average(self):
-        gradesall = sum(self.grades.values()) / len(self.grades)
-        print(f"{self.name} | ได้เกรดเฉลี่ย : {gradesall:.2f}")
-
-    def allresults(self):
-        gradesall = sum(self.grades.values()) / len(self.grades)
-        print(f"ชื่อ : {self.name} หมายเลขประจำตัว : {self.id} อายุ : {self.age} เกรดเฉลี่ย : {gradesall:.2f} ")
-
-grades1 = {'Mm': 2,'Thai': 4,'Es': 3,'Science': 1,'Social': 4}
-grades2 = {'Mm': 3,'Thai': 1,'Es': 3,'Science': 4,'Social': 4}
-
-mystudent1 = Student("นายวิชัย",100,20,grades1)
-mystudent2 = Student("นายชัยชนะ",101,19,grades2)
-
-mystudent1.average()
-mystudent2.average()
-print('---------------------------')
-
-mystudent1.allresults()
-mystudent2.allresults()
-print('-----------------------------------------------------------')
-print("รายละเอียดการอัปเดตเกรด")
-mystudent1.update_grades('Mm', 3)
-mystudent1.average()
-mystudent1.allresults()
-print('---------------------------')
-mystudent2.update_grades('ES', 4)
-mystudent2.average()
-mystudent2.allresults()
-print('-----------------------------------------------------------')
-print("ระละเอียดการเพิ่มวิชาและเกรด")
-mystudent1.add_grades('Math', 3)
-mystudent1.allresults()
-print('---------------------------')
-mystudent2.add_grades('History', 2)
-mystudent2.allresults()
+stu1.score(70)
+print(stu1.grade)
+print(f"ชื่อนักศึกษา:{stu1.name} | รหัสประจำตัว:{stu1.id}")
