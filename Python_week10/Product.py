@@ -17,7 +17,7 @@ class Product:
     def Product_details(self):
         return (f'(มีสินค้าชื่อ {self.name} มีราคา {self.__price} บาท จำนวน {self.__product} ชิ้น)')
 
-    
+
     
 use1 = Product("มือถือ",0)
 
